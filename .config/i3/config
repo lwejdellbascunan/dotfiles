@@ -30,9 +30,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 3 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -49,7 +46,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec "dmenu_run -nf '#C76464' -nb '#301818' -sb '#D86018' -sf '#FFFFFF' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
+
+# use rofi instead of dmenu
+bindsym $mod+r exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi"
 
 # change focus
 bindsym $mod+j focus left
@@ -147,7 +147,6 @@ bindsym $mod+Shift+r restart
 # exit i3 without prompt
 bindsym $mod+Shift+e exit
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
     
@@ -172,26 +171,29 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-# Set the background frame colours
-set $bg-color		 #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+bindsym $mod+d mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+client.focused          #D86018 #D86018 #FFFFFF #D86018   #5F676A
+client.focused_inactive #D86018 #301818 #C76464 #484E50   #5F676A
+client.unfocused        #D86018 #301818 #C76464 #292D2E   #5F676A
+client.urgent           #D86018 #C03018 #FFFFFF #C03018   #5F676A
+client.placeholder      #D86018 #301818 #C76464 #000000   #5F676A
+
+client.background       #FFFFFF
+
+
 bar {
     position top
-    #font pango:monospace 10
+    font pango:monospace 10
     colors {
-        background $bg-color
-        separator #757575
-        #                  border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
-        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        background #301818
+        statusline #FFFFFF
+        separator  #C76464
+        focused_workspace  #D87800 #D87800 #FFFFFF
+        active_workspace   #301818 #222222 #FFFFFF
+        inactive_workspace #301818 #222222 #C76464
+        urgent_workspace   #301818 #C03018 #FFFFFF
+        binding_mode       #301818 #C03018 #FFFFFF
     }
     status_command i3status
 }
