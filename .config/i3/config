@@ -49,7 +49,7 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec "dmenu_run -nf '#C76464' -nb '#301818' -sb '#D86018' -sf '#FFFFFF' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
 
 # use rofi instead of dmenu
-bindsym $mod+r exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi"
+bindsym $mod+r exec --no-startup-id "rofi -show combi"
 
 # change focus
 bindsym $mod+j focus left
