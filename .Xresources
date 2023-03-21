@@ -2,46 +2,71 @@
 
 Xft.dpi:   100
 
-!! Colorscheme (Shapeshifter dark)
-! special
-*.foreground:   #ababab
-*.background:   #000000
-*.cursorColor:  #ababab
+! Colors imported from:
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Author: morhetz <morhetz@gmail.com>
+! Last Modified: 6 Sep 2014
 
-! black
-*.color0:       #000000
-*.color8:       #343434
+!! Gruvbox-dark
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
-! red
-*.color1:       #e92f2f
-*.color9:       #e92f2f
+!! Gruvbox-light
+! hard contrast: *background: #f9f5d7
+! *background: #fbf1c7
+! ! soft contrast: *background: #f2e5bc
+! *foreground: #3c3836
+! ! Black + DarkGrey
+! *color0:  #fdf4c1
+! *color8:  #928374
+! ! DarkRed + Red
+! *color1:  #cc241d
+! *color9:  #9d0006
+! ! DarkGreen + Green
+! *color2:  #98971a
+! *color10: #79740e
+! ! DarkYellow + Yellow
+! *color3:  #d79921
+! *color11: #b57614
+! ! DarkBlue + Blue
+! *color4:  #458588
+! *color12: #076678
+! ! DarkMagenta + Magenta
+! *color5:  #b16286
+! *color13: #8f3f71
+! ! DarkCyan + Cyan
+! *color6:  #689d6a
+! *color14: #427b58
+! ! LightGrey + White
+! *color7:  #7c6f64
+! *color15: #3c3836
 
-! green
-*.color2:       #0ed839
-*.color10:      #0ed839
-
-! yellow
-*.color3:       #dddd13
-*.color11:      #dddd13
-
-! blue
-*.color4:       #3b48e3
-*.color12:      #3b48e3
-
-! magenta
-*.color5:       #f996e2
-*.color13:      #f996e2
-
-! cyan
-*.color6:       #23edda
-*.color14:      #23edda
-
-! white
-*.color7:       #ababab
-*.color15:      #f9f9f9
-
-! *highlightTextColor: #000000
-! *highlightColor: #c1ddff
 
 !! Font preferences
 
