@@ -6,4 +6,5 @@ sudo apt install \
          rofi\
          bat\
          i3 -y\
-         i3lock 
+         i3lock\
+         exa

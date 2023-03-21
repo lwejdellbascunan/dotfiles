@@ -1,5 +1,4 @@
 configuration {
 	modi: "window,run,ssh,combi";
 }
-/* Theme by https://github.com/mbfraga */
-@import "/usr/share/rofi/themes/flat-orange.rasi"
+@import "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
