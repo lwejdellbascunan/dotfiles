@@ -184,27 +184,59 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-client.focused          #D86018 #D86018 #FFFFFF #D86018   #5F676A
-client.focused_inactive #D86018 #301818 #C76464 #484E50   #5F676A
-client.unfocused        #D86018 #301818 #C76464 #292D2E   #5F676A
-client.urgent           #D86018 #C03018 #FFFFFF #C03018   #5F676A
-client.placeholder      #D86018 #301818 #C76464 #000000   #5F676A
 
-client.background       #FFFFFF
+#######
+#THEME#
+#######
 
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
 
+# font used by i3 for titles and bars
+font pango:monospace 10
+
+#start of bar section
 bar {
-    position top
-    font pango:monospace 10
-    colors {
-        background #301818
-        statusline #FFFFFF
-        separator  #C76464
-        focused_workspace  #D87800 #D87800 #FFFFFF
-        active_workspace   #301818 #222222 #FFFFFF
-        inactive_workspace #301818 #222222 #C76464
-        urgent_workspace   #301818 #C03018 #FFFFFF
-        binding_mode       #301818 #C03018 #FFFFFF
-    }
+    position bottom
     status_command i3status
+    colors {
+        background $bg
+        statusline $yellow
+        #                    border  backgr. text
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red $red $bg
+        binding_mode         $red $red $bg
+    }
 }
+#end of bar section
+
+#start of window title bars & borders section
+
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $green $green $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $red $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $blue $blue $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
+
+#end of window title bars & borders section
+
+# Load Xresources
+exec xrdb ~/.Xresources
