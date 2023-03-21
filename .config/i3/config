@@ -9,7 +9,7 @@ font pango:DejaVu Sans Mono 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # Randomize background at start
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/walls
+# exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/walls
 
 # Use polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
