@@ -1,9 +1,6 @@
 # Bash config; Not much to see here
 
-# fancy cat
-alias cat=batcat
-
-export TERM="xterm-256color"                      # getting proper colors
+export TERM="xterm-256color"                     # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 
 # If not running interactively, don't do anything
@@ -12,26 +9,9 @@ case $- in
     *) return;;
 esac
 
-
-# don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-shopt -s cdspell
-shopt -s cmdhist
-shopt -s expand_aliases
-shopt -s checkwinsize
-
 # Recommended: ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
-# history length
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -64,6 +44,7 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
+    # cwd above promt character, here I use λ instead of $
     export PS1="\[\033[01;34m\]\w/\[\033[32m\]\[\033[00m\]\[\033[35m\]\$(parse_git_branch)\[\033[00m\]\nλ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -79,17 +60,25 @@ case "$TERM" in
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-# if [ -x /usr/bin/dircolors ]; then
-#     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#     alias ls='ls --color=auto'
-#     alias dir='dir --color=auto'
-#     alias vdir='vdir --color=auto'
-# fi
 
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+############################# KEEP HISRTORY #############################
 
+HISTCONTROL=ignoreboth      # Ignore dupes and lines starting with space
+HISTSIZE=1000                                           # history length
+HISTFILESIZE=2000
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+shopt -s cdspell
+shopt -s cmdhist
+shopt -s expand_aliases
+shopt -s checkwinsize
+
+
+################# ALIASES, to be noved to .bash_aliases #################
+alias config='/usr/bin/git --git-dir=/home/leyla/.cfg/ --work-tree=/home/leyla'
+alias cat=batcat                                            # Fancier cat
+alias rttlog='systemctl --user restart rttlog'              # RTTlogger service
 # Changing "ls" to "exa"
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
 alias la='exa -a --color=always --group-directories-first'  # all files and dirs
@@ -108,11 +97,8 @@ if ! shopt -oq posix; then
     fi
 fi
 
+################################# PATHS #################################
 
-# LOVE2D
-export PATH=$PATH:$HOME/bin/love/src/love/
-
-### PATH
 if [ -d "$HOME/.bin" ] ;
 then PATH="$HOME/.bin:$PATH"
 fi
@@ -125,7 +111,12 @@ if [ -d "$HOME/Applications" ] ;
 then PATH="$HOME/Applications:$PATH"
 fi
 
-export PATH=~/.local/bin:"$PATH"
+export PATH=~/personal/bin:"$PATH"
 
-alias config='/usr/bin/git --git-dir=/home/leyla/.cfg/ --work-tree=/home/leyla'
+
+############################# HACKER STUFF #############################
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export PATH=$PATH:$HOME/bin/love/src/love/
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
