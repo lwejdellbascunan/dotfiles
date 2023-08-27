@@ -64,7 +64,7 @@ esac
 ############################# KEEP HISRTORY #############################
 
 HISTCONTROL=ignoreboth      # Ignore dupes and lines starting with space
-HISTSIZE=1000                                           # history length
+HISTSIZE=10000                                          # history length
 HISTFILESIZE=2000
 
 # append to the history file, don't overwrite it
@@ -75,8 +75,8 @@ shopt -s expand_aliases
 shopt -s checkwinsize
 
 
-################# ALIASES, to be noved to .bash_aliases #################
-alias config='/usr/bin/git --git-dir=/home/leyla/.cfg/ --work-tree=/home/leyla'
+################# ALIASES, to be moved to .bash_aliases #################
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cat=batcat                                            # Fancier cat
 alias rttlog='systemctl --user restart rttlog'              # RTTlogger service
 # Changing "ls" to "exa"
@@ -113,10 +113,6 @@ fi
 
 export PATH=~/personal/bin:"$PATH"
 
-
-############################# HACKER STUFF #############################
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export PATH=$PATH:$HOME/bin/love/src/love/
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
