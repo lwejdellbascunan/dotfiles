@@ -6,12 +6,13 @@
 # ß
 # If the above line is not correctly displayed, fix your editor first!
 
+# Dracula themed colors
 general {
-	output_format = "i3bar"
-	colors = true
-	color_good = "#86CB48"
-	color_degraded = "#D8A82B"
-	color_bad = "#FF0000"
+        output_format = "i3bar"
+        colors = true
+        color_good = "#50FA7B"
+        color_degraded = "#F1FA8C"
+        color_bad = "#FF5555"
         interval = 5
 }
 

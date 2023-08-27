@@ -7,15 +7,13 @@ font pango:DejaVu Sans Mono 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-# Randomize background at start
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/walls
+exec --no-startup-id xss-lock --ignore-sleep -- i3lock --nofork
 
 # Use polybar
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Use i3lock-color
-bindsym Control+Mod1+l exec /home/leyla/.config/i3/lock.sh
+# Lock screen with some fancy pixelation
+bindsym Control+$mod+l exec $HOME/.config/i3/lock.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -36,15 +34,13 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+## Screenshots ()
+bindsym --release $mod+Shift+S exec --no-startup-id maim "$HOME/Pictures/Screenshot from $(date -u +%Y-%m-%dT%H:%M:%S)"
+
+# bindsym Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
 
 ## Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym --release Ctrl+Shift+S exec --no-startup-id "maim --select | xclip -selection clipboard -t image/png"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -96,7 +92,8 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f exec --no-startup-id "polybar-msg cmd toggle";
+# bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -187,27 +184,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-client.focused          #D86018 #D86018 #FFFFFF #D86018   #5F676A
-client.focused_inactive #D86018 #301818 #C76464 #484E50   #5F676A
-client.unfocused        #D86018 #301818 #C76464 #292D2E   #5F676A
-client.urgent           #D86018 #C03018 #FFFFFF #C03018   #5F676A
-client.placeholder      #D86018 #301818 #C76464 #000000   #5F676A
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.background       #FFFFFF
-
-
-bar {
-    position top
-    font pango:monospace 10
-    colors {
-        background #301818
-        statusline #FFFFFF
-        separator  #C76464
-        focused_workspace  #D87800 #D87800 #FFFFFF
-        active_workspace   #301818 #222222 #FFFFFF
-        inactive_workspace #301818 #222222 #C76464
-        urgent_workspace   #301818 #C03018 #FFFFFF
-        binding_mode       #301818 #C03018 #FFFFFF
-    }
-    status_command i3status
-}
+client.background       #F8F8F2
+# Load Xresources
+exec xrdb ~/.Xresources
