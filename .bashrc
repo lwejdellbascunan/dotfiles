@@ -88,6 +88,10 @@ if ! shopt -oq posix; then
     fi
 fi
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 ################################# PATHS #################################
 
 if [ -d "$HOME/.bin" ] ;

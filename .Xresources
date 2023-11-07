@@ -31,8 +31,6 @@ Xft.dpi:   100
 *VT100.colorUL:        cyan
 
 *VT100.locale:         true
-*VT100.veryBoldColors: 6
-
 
 ! Use a truetype font and size.
 *VT100.renderFont: true
