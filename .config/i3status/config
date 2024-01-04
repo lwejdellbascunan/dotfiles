@@ -11,9 +11,9 @@ general {
         markup = "pango"
         output_format = "i3bar"
         colors = true
-        color_good = "#50FA7B"
-        color_degraded = "#F1FA8C"
-        color_bad = "#FF5555"
+        color_good = "#83c092"
+        color_degraded = "#dbbc7f"
+        color_bad = "#e67e80"
         interval = 5
 }
 
@@ -37,8 +37,9 @@ order += "tztime local"
 #         format_up = "<span color='#f4f99d'>%ip</span> (%speed)"
 #         format_down = ""
 # }
+
 volume master {
-	format = "<span color='#8be9fd'>♪ %volume</span>"
+	format = "<span color='#d3c6aa'>♪ %volume</span>"
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
@@ -50,15 +51,15 @@ battery all {
 }
 
 disk "/" {
-        format = "<span color='#bd93f9'>%avail</span>"
+        format = "<span color='#7fbbb3'>%avail</span>"
 }
 
 load {
-        format = "<span color='#ff79c6'>%1min</span>"
+        format = "<span color='#d699b6'>%1min</span>"
 }
 
 memory {
-        format = "<span color='#5af78e'>%used</span>"
+        format = "<span color='#a7c080'>%used</span>"
         threshold_degraded = "10%"
         format_degraded = "MEMORY: %free"
 }

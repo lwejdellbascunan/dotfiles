@@ -1,3 +1,4 @@
+---@type NvPluginSpec[]
 local plugins = {
   {
     "neovim/nvim-lspconfig",
@@ -68,6 +69,10 @@ local plugins = {
           },
       },
     },
+  },
+  {
+    "sainnhe/everforest",
+    lazy = false,
   },
 }
 return plugins

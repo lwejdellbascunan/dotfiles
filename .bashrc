@@ -1,5 +1,7 @@
 # Bash config; Not much to see here
 
+export EDITOR=nvim
+export VISUAL=nvim
 export TERM="xterm-256color"
 
 # If not running interactively, don't do anything
@@ -111,8 +113,14 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 ############################# Lazy SSH ##################################
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
+  eval $(ssh-agent)
   ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
+
+
+[ -f "/home/qiwi/.ghcup/env" ] && source "/home/qiwi/.ghcup/env" # ghcup-env
+
+source "/usr/share/bash-completion/completions/fzf"
+source "/usr/share/doc/fzf/examples/key-bindings.bash"
