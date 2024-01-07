@@ -120,7 +120,7 @@ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
 
-[ -f "/home/qiwi/.ghcup/env" ] && source "/home/qiwi/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 source "/usr/share/bash-completion/completions/fzf"
 source "/usr/share/doc/fzf/examples/key-bindings.bash"
