@@ -5,8 +5,7 @@ font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id xss-lock --ignore-sleep -- i3lock --nofork
 
-# Background from: https://github.com/helpotters/dracula-wallpapers/
-exec_always --no-startup-id feh --bg-fill "$HOME/dracula-cat-282a36.png"
+exec_always --no-startup-id feh --bg-fill "/home/$USER/Pictures/wallpaper.jpg"
 
 # Lock screen with some fancy pixelation
 bindsym $mod+Control+l exec $HOME/.config/i3/lock.sh
