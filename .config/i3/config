@@ -3,9 +3,9 @@
 set $mod Mod4
 
 ## appearance ##
-
-gaps inner 12
-gaps outer 5
+# gaps supported on i3 4.22 and above
+# gaps inner 12
+# gaps outer 5
 
 # Hide Title Bar
 for_window [class="^.*"] border pixel 3
